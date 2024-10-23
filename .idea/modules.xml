@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/WordConnect.iml" filepath="$PROJECT_DIR$/WordConnect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android/WordConnect.android.iml" filepath="$PROJECT_DIR$/.idea/modules/android/WordConnect.android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android/WordConnect.android.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/android/WordConnect.android.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android/WordConnect.android.main.iml" filepath="$PROJECT_DIR$/.idea/modules/android/WordConnect.android.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android/WordConnect.android.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/android/WordConnect.android.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/WordConnect.core.iml" filepath="$PROJECT_DIR$/.idea/modules/core/WordConnect.core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/WordConnect.core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/core/WordConnect.core.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/WordConnect.core.test.iml" filepath="$PROJECT_DIR$/.idea/modules/core/WordConnect.core.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/desktop/WordConnect.desktop.iml" filepath="$PROJECT_DIR$/.idea/modules/desktop/WordConnect.desktop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/desktop/WordConnect.desktop.main.iml" filepath="$PROJECT_DIR$/.idea/modules/desktop/WordConnect.desktop.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/desktop/WordConnect.desktop.test.iml" filepath="$PROJECT_DIR$/.idea/modules/desktop/WordConnect.desktop.test.iml" />
+    </modules>
+  </component>
+</project>

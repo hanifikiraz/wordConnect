@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="1.7">
+      <module name="core" target="1.7" />
+      <module name="desktop" target="1.7" />
+      <module name="html" target="1.7" />
+      <module name="WordConnect.android" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
