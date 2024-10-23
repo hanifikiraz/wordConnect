@@ -1,0 +1,19 @@
+MAKE A BACKUP COPY OF YOUR PROJECT BEFORE STARTING.
+
+1. Download the latest Android Studio. (Jellyfish 2023.3.1).
+2. In the android build.gradle file, add a namespace block, refleting your package id. Sync.
+3. In top-level build.gradle file, change com.android.tools.build:gradle value to 8.3.2. Sync.
+4. File->Project Structure, change Gradle Version to 8.7
+5. In top-level build.gradle file, change com.google.gms:google-services value to 4.4.1. Sync.
+6. In top-level build.gradle file, change com.google.android.gms:play-services-ads value to 23.0.0. Sync.
+7. In top-level build.gradle file, change com.google.android.ump:user-messaging-platform value to 2.2.0. Sync.
+8. In top-level build.gradle file, change com.android.billingclient:billing value to 6.2.1. Sync.
+9. In top-level build.gradle file, change com.google.firebase:firebase-bom value to 32.8.1. Sync.
+10. In android build.gradle file, replace compileSdkVersion with compileSdk. Sync.
+10. In android build.gradle file, place an equals sign between buildToolsVersion and its version text. Sync.
+11. In android build.gradle file, change compileSdk version to 34. Sync.
+12. In android build.gradle file, change buildToolsVersion version to 34.0.0. Sync. Override the warning.
+13. In android build.gradle file, change minSdkVersion version to 21. Required by the new admob version. Sync.
+14. In AndroidManifest.xml, remove the package attribute and its value.
+15. Try to run the game in emulator. If you get "import your.package.name.R" errors, delete the faulty import statements and import the proper package name by 
+hovering your mouse over the "R" error lines.

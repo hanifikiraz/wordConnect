@@ -1,0 +1,12 @@
+-Bug fix. Replace the contents of android/assets/shader/dial.fsh complately to fix the combo ring effect.
+-Bug fix. BaseDialog.java. Replace the hide() method with the new version to prevent crash.
+
+-Update your android studio.
+
+-Root build.gradle file. Update com.google.android.gms:play-services-ads version to 20.6.0 and sync
+-Root build.gradle file. Update com.android.billingclient:billing version to 4.1.0 and sync
+-Root build.gradle file. Update com.android.tools.build:gradle to 7.1.3 and sync
+
+-Android build.gradle. Update buildToolsVersion to 32.0.0
+-Android build.gradle. Update compileSdkVersion to 32
+-Android build.gradle. Update targetSdkVersion to 32

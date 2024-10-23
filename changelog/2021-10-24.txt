@@ -1,0 +1,43 @@
+
+Make sure that your Android Studio is up-to-date. Also backup your project just in case something goes wrong.
+
+1. Fixed the issue of diminishing coins when the board is full of coins and letters. This happens if you try to apply a reveal hint.
+
+Fix: Open GameScreen.java and replace the "closeBoardOverlayAndAnimateHint" and "revealLetter" methods completely with the new version found in the updated GameScreen.java source code.
+
+
+2. Fix: Level Generator Database.findRandomWordTobeLetters (add "+ "AND score > 0 " in query )
+
+3. Upgraded Gradle Version to 7.3. File->Project Structure, Project->Gradle Version, select 7.3.
+
+4. Upgraded Android Gradle Plugin Version to 7.0.3. File->Project Structure, Project->Android Gradle Plugin Version, select 7.0.3.
+
+5. Updated google services classpath to 4.3.10. Open the top-level build.gradle file, find 'com.google.gms:google-services' and set its version to 4.3.10. Sync the project.
+
+6. Upgraded GDPR library to 2.0.0. Open the top-level build.gradle file, find 'com.google.android.ump:user-messaging-platform' and set its version to 2.0.0. Sync the project.
+
+7. Upgraded Admob to 20.5.0. Open the top-level build.gradle file, find 'com.google.android.gms:play-services-ads' and set its version to 20.5.0. Sync the project.
+Replace the contents of AdActivity with the new one, many things have changed due to upgrade. Then try to run the app. You will get an error concerning something incompatible.
+The next step will fix this.
+
+8. Updated SDK version to 31. Open the android-level build.gradle file. Set compileSdkVersion, targetSdkVersion to 31 and buildToolsVersion to 31.0.0. Sync the project.
+If the sync fails saying "Manifest merger failed due to android:exported", open AndroidManifest.xml, find the "activity" tag, it should be underlined with a red line,
+hover your mouse over the word "activity", it will suggest you to add "exported=true", choose it to have it set automatically. Now try to run the game again, this
+time you may get this error: Cannot fit requested classes in a single dex file. Onwards to the next step.
+
+9. Add multidex support because the upgraded libraries will not fit in a single dex file. Open the top-level build.gradle file. Find the line that contains 
+'com.google.firebase:firebase-messaging'. Add the line below that: 
+
+implementation 'com.android.support:multidex:1.0.3'
+
+Then in the android-level build.gradle file, find "versionName" and add the following line below that:
+
+multiDexEnabled true
+
+Sync the project. Now you should be able to install the app and test the new version of admob library. Don't forget to activate the testing admob mode in strings.xml.
+
+10. Upgrade IAP to 4.0.0. Open the top-level build.gradle file, find 'com.android.billingclient:billing' and set its version to 4.0.0. Sync the project.
+Replace the contents of IAPActivity with the new one, many things have changed due to upgrade.
+
+11. Made changes in android/assets/data/en/strings.properties and android/assets/data/tr/strings.properties because google has warned some users about misleading text for rewarded ads.
+changed the value of free_hints, ad_invite

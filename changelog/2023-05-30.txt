@@ -1,0 +1,9 @@
+1. Upgraded Android API SDK to 33. In the Android level build.gradle file, change compileSdkVersion and targetSdkVersion to 33. Then sync the project.
+2. Upgraded build tools version to 33. In the Android level build.gradle file, change buildToolsVersion "33.0.0". Then sync the project.
+3. In the root level build.gradle file, change com.google.android.gms:play-services-ads version to 22.1.0. Then sync the project.
+4. In the root level build.gradle file, change com.android.billingclient:billing version to 6.0.0. Then sync the project.
+5. Don't forget to update versionCode and versionName before uploading your new bundle/APK to play store.
+6. After upload the version to play store, you may get an error about advertising ID. Make the following configuration:
+
+A) Does your app use advertising ID? Choose "Yes".
+B) Why does your app need to use advertising ID? Choose advertising or marketing.

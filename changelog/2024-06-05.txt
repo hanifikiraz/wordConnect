@@ -1,0 +1,6 @@
+MAKE A BACKUP COPY OF YOUR PROJECT BEFORE STARTING.
+
+If you applied the update named "2024-06-05.txt", then you must apply this too because the previous update causes crash when the app is uploaded to google play developer console.
+Paste the following text into gradle.properties:
+
+android.enableR8.fullMode=false

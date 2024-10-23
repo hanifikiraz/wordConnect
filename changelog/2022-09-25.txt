@@ -1,0 +1,48 @@
+YOU SHOULD MAKE A BACKUP COPY OF THE PROJECT BEFORE APPLYING THE FOLLOWING CHANGES.
+
+1. Update Android Studio to the latest.
+
+2. Update Android Studio gradle version.
+	2.1. Go to File->Project Structure.
+	2.2. Go to Project tab.
+	2.3. Select 7.5.1 from Gradle Version.
+	
+	
+3. Update Android project gradle version.
+	3.1. Go to File->Project Structure
+	3.2. Go to Project tab.
+	3.3. Select 7.2.2 from Android Gradle Plugin Version.
+
+4. Upgrade billing library to 5.0.0.
+	4.1. Open the top-level build.gradle file.
+	4.2. Find and change com.android.billingclient:billing to 5.0.0 or higher if available.
+	4.3. Sync the gradle file when prompted.
+	4.4. File > Invalidate Caches.
+	4.5. Replace the contents of IAPActivity.java.
+
+5. Upgrade Google mobile ads to 21.1.0. Beware that this requires min Android SDK to be 19.
+	5.1. In the top-level build.gradle file, change com.google.android.gms:play-services-ads to 21.2.0 or higher if available.
+	5.2. Open the Android-level build.gradle file, update minSdkVersion to 19.
+	5.3. Sync the gradle file when prompted.
+	
+	
+6. Display interstitial ads without hitting the next level button. They will pop up at the end of a level automatically from now on.
+This is a new requirement by google: https://support.google.com/googleplay/android-developer/answer/12253906
+This update also removes the "Remove Ads?" dialog.
+	6.1. In GameScreen.java replace the contents of the levelFinished, interstitialClosed and showUIAnimFinished methods with the new ones.
+	6.2. Add the new method called showInterstitial into GameScreen.java.
+	
+7. Update Android target SDK version to 32.
+	7.1. In the Android-level build.gradle file, update targetSdkVersion, compileSdkVersion and buildToolsVersion to 32.
+	7.2. Sync the gradle file when prompted.
+	
+8. Update google play services to 4.3.13.
+	8.1. In the top-level build.gradle file, change com.google.gms:google-services to 4.3.13 or higher if available.
+	8.2. Sync the gradle file when prompted.
+	
+9. Fix. This fix was mentioned in the 2021-10.24 update but it seems that I forgot to paste the new code into the project, sorry. Now you can apply it:
+
+Fixed the issue of diminishing coins when the board is full of coins and letters. This happens if you try to apply a reveal hint.	
+Fix: Open GameScreen.java and replace the "closeBoardOverlayAndAnimateHint" and "revealLetter" methods completely with the new version found in the updated GameScreen.java source code.
+
+10. Test all the changes.

@@ -1,0 +1,132 @@
+*March 09, 2021
+
+
+1. Updated the generator project to be more efficient
+
+Changed
+	+ "AND score = " + score + " "
+to
+	+ "AND score <= " + score + " "
+in Database.java, method named: findRandomWordTobeLetters
+
+
+
+2. Updated the help pdf document about GDPR configuration
+
+3. Optimized background JPG images (reduced file size without quality loss)
+
+4. Updated IAPActivity.java to prevent crashes. The following methods were updated:
+
+private void findRemoveAdsCost(){
+	List<String> skuList = new ArrayList<>();
+	skuList.add(getString(R.string.IAP_ITEM_remove_ads));
+
+	SkuDetailsParams.Builder params = SkuDetailsParams.newBuilder();
+	params.setSkusList(skuList).setType(BillingClient.SkuType.INAPP);
+	billingClient.querySkuDetailsAsync(params.build(), new SkuDetailsResponseListener() {
+		@Override
+		public void onSkuDetailsResponse(@NonNull BillingResult billingResult, @Nullable List<SkuDetails> list) {
+			//UPDATE//
+			if(list == null){
+				androidShoppingProcessor.removeAdsPrice = "";
+				return;
+			}
+			//UPDATE//
+			for(SkuDetails skuDetails : list){
+				if(skuDetails.getSku().equals(getString(R.string.IAP_ITEM_remove_ads))){
+					androidShoppingProcessor.removeAdsPrice = skuDetails.getPrice();
+					break;
+				}
+			}
+		}
+	});
+}
+
+
+
+
+SkuDetailsResponseListener skuDetailsResponseListener = new SkuDetailsResponseListener() {
+	@Override
+	public void onSkuDetailsResponse(@NonNull BillingResult billingResult, @Nullable List<SkuDetails> list) {
+		//UPDATE//
+		if(list == null){
+			androidShoppingProcessor.reportItemRetrivalError(-100);
+			return;
+		}
+		//UPDATE//
+		if(billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
+			androidShoppingProcessor.returnShoppingItems(list);
+		}else {
+			androidShoppingProcessor.reportItemRetrivalError(billingResult.getResponseCode());
+		}
+	}
+};
+
+
+
+
+5. Updated build tools version
+
+Changed
+	buildToolsVersion "30.0.0"
+to
+	buildToolsVersion "30.0.2"
+in android/build.gradle file.
+
+
+
+6. Updated/upgraded classpath versions
+
+
+Changed
+	classpath 'org.wisepersist:gwt-gradle-plugin:1.0.9'
+to
+	classpath 'org.wisepersist:gwt-gradle-plugin:1.0.13'
+in the build.gradle file at project root	
+
+
+
+Changed 
+	classpath 'com.android.tools.build:gradle:3.5.0'
+to
+	classpath 'com.android.tools.build:gradle:4.1.2'
+in the same file as above
+
+This gives an error saying "Minimum supported Gradle version is 6.5".
+To fix this go to File->Project Structure->Project tab and select 6.8.3 in the Gradle Version combo box. Then hit the Apply button.
+
+
+Changed
+	classpath 'com.google.gms:google-services:4.3.4'
+to
+	classpath 'com.google.gms:google-services:4.3.5'
+in the same file as above
+
+
+Changed
+	implementation 'com.android.billingclient:billing:3.0.1'
+to
+	implementation 'com.android.billingclient:billing:3.0.2'
+in the same file as above	
+
+
+
+After these updates/upgrades you will get this error: "This project uses AndroidX dependencies, but the 'android.useAndroidX' property is not enabled.."
+To fix this, open gradle.properties at the root of the project and add the two following lines at the end:
+
+android.useAndroidX=true
+android.enableJetifier=true
+
+
+7. Added the customization of IAP items title. Google adds the game's title to IAP items, let's prevent this.
+
+Added item titles in strings.properties files for English and Turkish. Copy these items respentively.
+Each title in these files is equal to its IAP id in Play Store and other places in game code. So you should be consistent.
+Copy and paste these from android/assets/data tr and en /strings.properties files. If you have another language do it for that language too.
+Then open core/src/word/game/ui/dialogs/iap/ShoppingDialog.java and find the method called setShoppingItems.
+Copy and paste the following code to be the first statement in this method (Refer to the file if you are not sure where to paste):
+
+for(ShoppingItem item : items){
+	item.title = LanguageManager.get(item.sku);
+}
+

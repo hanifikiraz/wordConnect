@@ -1,0 +1,7 @@
+1. Changed the rewarded ad video button's icon. Added the word "AD" on the icon' PNG as per google admob requirements. 
+You should edit sprite sheet number 2. It is under the resources folder. You should repack your atlas texture using the free texture packer software.
+The information about how to use the texture packer is in the help file.
+2. Editted WatchAndEarnDialog.java file to display the number of coins earned. Google admob enforces this.
+3. Editted strings.properties files for both en and tr languages. Added a parameter for ad_invite key. These are under android/assets/data folder.
+4. Perform the above modifications for your own languages too otherwise ad serve may be stopped by admob.
+5. Updated some libraries in the root build.gradle file.
